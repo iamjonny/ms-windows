@@ -1,43 +1,69 @@
-C:\Dev\Sonic-Pi\app>win-build-all.bat
+C:\Dev\sonic-pi-4.4.0\app>win-build-all.bat
 
-C:\Dev\Sonic-Pi\app>set WORKING_DIR=C:\Dev\Sonic-Pi\app
+C:\Dev\sonic-pi-4.4.0\app>set WORKING_DIR=C:\Dev\sonic-pi-4.4.0\app
 
-C:\Dev\Sonic-Pi\app>set CONFIG=
+C:\Dev\sonic-pi-4.4.0\app>set CONFIG=
 
-C:\Dev\Sonic-Pi\app>if /I "" == "" (set CONFIG=Release )
+C:\Dev\sonic-pi-4.4.0\app>if /I "" == "" (set CONFIG=Release )
 
-C:\Dev\Sonic-Pi\app>call win-prebuild.bat
+C:\Dev\sonic-pi-4.4.0\app>call win-prebuild.bat
 
-C:\Dev\Sonic-Pi\app>set WORKING_DIR=C:\Dev\Sonic-Pi\app
+C:\Dev\sonic-pi-4.4.0\app>set WORKING_DIR=C:\Dev\sonic-pi-4.4.0\app
 
-C:\Dev\Sonic-Pi\app>cd C:\Dev\Sonic-Pi\app\
+C:\Dev\sonic-pi-4.4.0\app>cd C:\Dev\sonic-pi-4.4.0\app\
 
-C:\Dev\Sonic-Pi\app>call win-pre-vcpkg.bat
+C:\Dev\sonic-pi-4.4.0\app>call win-pre-vcpkg.bat
 
-C:\Dev\Sonic-Pi\app>set WORKING_DIR=C:\Dev\Sonic-Pi\app
+C:\Dev\sonic-pi-4.4.0\app>set WORKING_DIR=C:\Dev\sonic-pi-4.4.0\app
 
-C:\Dev\Sonic-Pi\app>cd C:\Dev\Sonic-Pi\app\
+C:\Dev\sonic-pi-4.4.0\app>cd C:\Dev\sonic-pi-4.4.0\app\
 
-C:\Dev\Sonic-Pi\app>REM Build vcpkg
+C:\Dev\sonic-pi-4.4.0\app>REM Build vcpkg
 
-C:\Dev\Sonic-Pi\app>if not exist "vcpkg\" (
+C:\Dev\sonic-pi-4.4.0\app>if not exist "vcpkg\" (
 echo Cloning vcpkg
  git clone --depth 1 --branch 2022.11.14 https://github.com/microsoft/vcpkg.git vcpkg
 )
+Cloning vcpkg
+Cloning into 'vcpkg'...
+remote: Enumerating objects: 11612, done.
+remote: Counting objects: 100% (11612/11612), done.
+remote: Compressing objects: 100% (9981/9981), done.
+remote: Total 11612 (delta 2615), reused 7839 (delta 1580), pack-reused 0
+Receiving objects: 100% (11612/11612), 5.05 MiB | 1.56 MiB/s, done.
+Resolving deltas: 100% (2615/2615), done.
+Note: switching to '6f7ffeb18f99796233b958aaaf14ec7bd4fb64b2'.
 
-C:\Dev\Sonic-Pi\app>set VCPKG_ROOT=C:\Dev\Sonic-Pi\app\\vcpkg
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
 
-C:\Dev\Sonic-Pi\app>if not exist "vcpkg\vcpkg.exe" (
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+Updating files: 100% (9511/9511), done.
+
+C:\Dev\sonic-pi-4.4.0\app>set VCPKG_ROOT=C:\Dev\sonic-pi-4.4.0\app\/vcpkg
+
+C:\Dev\sonic-pi-4.4.0\app>if not exist "vcpkg\vcpkg.exe" (
 cd vcpkg
  echo Building vcpkg
  call bootstrap-vcpkg.bat -disableMetrics
- cd C:\Dev\Sonic-Pi\app\
+ cd C:\Dev\sonic-pi-4.4.0\app\
 )
+Building vcpkg
+Downloading https://github.com/microsoft/vcpkg-tool/releases/download/2022-11-10/vcpkg.exe -> C:\Dev\sonic-pi-4.4.0\app\vcpkg\vcpkg.exe... done.
+Validating signature... done.
 
-C:\Dev\Sonic-Pi\app>cd vcpkg
 Installing Libraries
-
-C:\Dev\Sonic-Pi\app\vcpkg>vcpkg install  kissfft fmt crossguid sdl2 gl3w reproc gsl-lite concurrentqueue platform-folders catch2 --triplet x64-windows-static-md --recurse
 Computing installation plan...
 The following packages will be built and installed:
     catch2[core]:x64-windows-static-md -> 3.1.1#2
@@ -48,29 +74,66 @@ The following packages will be built and installed:
     gl3w[core]:x64-windows-static-md -> 2018-05-31#4
     gsl-lite[core]:x64-windows-static-md -> 0.40.0
     kissfft[core]:x64-windows-static-md -> 2021-11-14
+  * libflac[core]:x64-windows-static-md -> 1.3.4#1
+  * libogg[core]:x64-windows-static-md -> 1.3.5
+    libsndfile[core,external-libs]:x64-windows-static-md -> 1.1.0#1
+  * libvorbis[core]:x64-windows-static-md -> 1.3.7#2
   * opengl-registry[core]:x64-windows-static-md -> 2021-11-17
+  * opus[core]:x64-windows-static-md -> 1.3.1#9
     platform-folders[core]:x64-windows-static-md -> 4.1.0
     reproc[core]:x64-windows-static-md -> 14.2.4#1
     sdl2[core]:x64-windows-static-md -> 2.24.2
+  * vcpkg-cmake[core]:x64-windows -> 2022-10-30
+  * vcpkg-cmake-config[core]:x64-windows -> 2022-02-06#1
 Additional packages (*) will be modified to complete this operation.
+Detecting compiler hash for triplet x64-windows...
+A suitable version of powershell-core was not found (required v7.2.6) Downloading portable powershell-core 7.2.6...
+Downloading powershell-core...
+https://github.com/PowerShell/PowerShell/releases/download/v7.2.6/PowerShell-7.2.6-win-x86.zip->C:\Dev\sonic-pi-4.4.0\app\vcpkg\downloads\PowerShell-7.2.6-win-x86.zip
+Downloading https://github.com/PowerShell/PowerShell/releases/download/v7.2.6/PowerShell-7.2.6-win-x86.zip
+Extracting powershell-core...
 Detecting compiler hash for triplet x64-windows-static-md...
-Restored 0 package(s) from C:\Users\Jonny\AppData\Local\vcpkg\archives in 1.357 ms. Use --debug to see more details.
-Installing 1/12 catch2:x64-windows-static-md...
+Restored 0 package(s) from C:\Users\Jonny\AppData\Local\vcpkg\archives in 1.032 ms. Use --debug to see more details.
+Installing 1/19 vcpkg-cmake:x64-windows...
+Building vcpkg-cmake[core]:x64-windows...
+-- Installing: C:/Dev/sonic-pi-4.4.0/app/vcpkg/packages/vcpkg-cmake_x64-windows/share/vcpkg-cmake/vcpkg_cmake_configure.cmake
+-- Installing: C:/Dev/sonic-pi-4.4.0/app/vcpkg/packages/vcpkg-cmake_x64-windows/share/vcpkg-cmake/vcpkg_cmake_build.cmake
+-- Installing: C:/Dev/sonic-pi-4.4.0/app/vcpkg/packages/vcpkg-cmake_x64-windows/share/vcpkg-cmake/vcpkg_cmake_install.cmake
+-- Installing: C:/Dev/sonic-pi-4.4.0/app/vcpkg/packages/vcpkg-cmake_x64-windows/share/vcpkg-cmake/vcpkg-port-config.cmake
+-- Installing: C:/Dev/sonic-pi-4.4.0/app/vcpkg/packages/vcpkg-cmake_x64-windows/share/vcpkg-cmake/copyright
+-- Performing post-build validation
+-- Performing post-build validation done
+A suitable version of 7zip was not found (required v21.7.0) Downloading portable 7zip 21.7.0...
+Downloading 7zip...
+https://www.7-zip.org/a/7z2107-extra.7z->C:\Dev\sonic-pi-4.4.0\app\vcpkg\downloads\7z2107-extra.7z
+Downloading https://www.7-zip.org/a/7z2107-extra.7z
+Extracting 7zip...
+Stored binary cache: "C:\Users\Jonny\AppData\Local\vcpkg\archives\f4\f4f651869c3e72b83770e2193167beaee48ff4e82deb2db504b2c9771c7922bc.zip"
+Elapsed time to handle vcpkg-cmake:x64-windows: 4.53 s
+Installing 2/19 vcpkg-cmake-config:x64-windows...
+Building vcpkg-cmake-config[core]:x64-windows...
+-- Installing: C:/Dev/sonic-pi-4.4.0/app/vcpkg/packages/vcpkg-cmake-config_x64-windows/share/vcpkg-cmake-config/vcpkg_cmake_config_fixup.cmake
+-- Installing: C:/Dev/sonic-pi-4.4.0/app/vcpkg/packages/vcpkg-cmake-config_x64-windows/share/vcpkg-cmake-config/vcpkg-port-config.cmake
+-- Installing: C:/Dev/sonic-pi-4.4.0/app/vcpkg/packages/vcpkg-cmake-config_x64-windows/share/vcpkg-cmake-config/copyright
+-- Performing post-build validation
+-- Performing post-build validation done
+Stored binary cache: "C:\Users\Jonny\AppData\Local\vcpkg\archives\b5\b5f4fce06bdfad8e75e60a72b9d944827ef750c087f8d5bf4d331075615ad99a.zip"
+Elapsed time to handle vcpkg-cmake-config:x64-windows: 195.5 ms
+Installing 3/19 catch2:x64-windows-static-md...
 Building catch2[core]:x64-windows-static-md...
 warning: -- Using community triplet x64-windows-static-md. This triplet configuration is not guaranteed to succeed.
--- [COMMUNITY] Loading triplet configuration from: C:\Dev\Sonic-Pi\app\vcpkg\triplets\community\x64-windows-static-md.cmake
--- Using cached catchorg-Catch2-v3.1.1.tar.gz.
--- Cleaning sources at C:/Dev/Sonic-Pi/app/vcpkg/buildtrees/catch2/src/v3.1.1-75a9114e59.clean. Use --editable to skip cleaning for the packages you specify.
--- Extracting source C:/Dev/Sonic-Pi/app/vcpkg/downloads/catchorg-Catch2-v3.1.1.tar.gz
+-- [COMMUNITY] Loading triplet configuration from: C:\Dev\sonic-pi-4.4.0\app\vcpkg\triplets\community\x64-windows-static-md.cmake
+-- Downloading https://github.com/catchorg/Catch2/archive/v3.1.1.tar.gz -> catchorg-Catch2-v3.1.1.tar.gz...
+-- Extracting source C:/Dev/sonic-pi-4.4.0/app/vcpkg/downloads/catchorg-Catch2-v3.1.1.tar.gz
 -- Applying patch fix-install-path.patch
 -- Applying patch no-absolute-paths.patch
--- Using source at C:/Dev/Sonic-Pi/app/vcpkg/buildtrees/catch2/src/v3.1.1-75a9114e59.clean
+-- Using source at C:/Dev/sonic-pi-4.4.0/app/vcpkg/buildtrees/catch2/src/v3.1.1-75a9114e59.clean
 -- Configuring x64-windows-static-md
 -- Building x64-windows-static-md-dbg
 -- Building x64-windows-static-md-rel
--- Fixing pkgconfig file: C:/Dev/Sonic-Pi/app/vcpkg/packages/catch2_x64-windows-static-md/lib/pkgconfig/catch2-with-main.pc
--- Fixing pkgconfig file: C:/Dev/Sonic-Pi/app/vcpkg/packages/catch2_x64-windows-static-md/lib/pkgconfig/catch2.pc
--- Using cached msys-mingw-w64-i686-pkg-config-0.29.2-3-any.pkg.tar.zst.
+-- Fixing pkgconfig file: C:/Dev/sonic-pi-4.4.0/app/vcpkg/packages/catch2_x64-windows-static-md/lib/pkgconfig/catch2-with-main.pc
+-- Fixing pkgconfig file: C:/Dev/sonic-pi-4.4.0/app/vcpkg/packages/catch2_x64-windows-static-md/lib/pkgconfig/catch2.pc
+-- Downloading https://repo.msys2.org/mingw/i686/mingw-w64-i686-pkg-config-0.29.2-3-any.pkg.tar.zst;https://www2.futureware.at/~nickoe/msys2-mirror/mingw/i686/mingw-w64-i686-pkg-config-0.29.2-3-any.pkg.tar.zst;https://mirror.yandex.ru/mirrors/msys2/mingw/i686/mingw-w64-i686-pkg-config-0.29.2-3-any.pkg.tar.zst;https://mirrors.tuna.tsinghua.edu.cn/msys2/mingw/i686/mingw-w64-i686-pkg-config-0.29.2-3-any.pkg.tar.zst;https://mirrors.ustc.edu.cn/msys2/mingw/i686/mingw-w64-i686-pkg-config-0.29.2-3-any.pkg.tar.zst;https://mirror.bit.edu.cn/msys2/mingw/i686/mingw-w64-i686-pkg-config-0.29.2-3-any.pkg.tar.zst;https://mirror.selfnet.de/msys2/mingw/i686/mingw-w64-i686-pkg-config-0.29.2-3-any.pkg.tar.zst;https://mirrors.sjtug.sjtu.edu.cn/msys2/mingw/i686/mingw-w64-i686-pkg-config-0.29.2-3-any.pkg.tar.zst -> msys-mingw-w64-i686-pkg-config-0.29.2-3-any.pkg.tar.zst...
 -- Downloading https://repo.msys2.org/mingw/i686/mingw-w64-i686-libwinpthread-git-9.0.0.6373.5be8fcd83-1-any.pkg.tar.zst;https://www2.futureware.at/~nickoe/msys2-mirror/mingw/i686/mingw-w64-i686-libwinpthread-git-9.0.0.6373.5be8fcd83-1-any.pkg.tar.zst;https://mirror.yandex.ru/mirrors/msys2/mingw/i686/mingw-w64-i686-libwinpthread-git-9.0.0.6373.5be8fcd83-1-any.pkg.tar.zst;https://mirrors.tuna.tsinghua.edu.cn/msys2/mingw/i686/mingw-w64-i686-libwinpthread-git-9.0.0.6373.5be8fcd83-1-any.pkg.tar.zst;https://mirrors.ustc.edu.cn/msys2/mingw/i686/mingw-w64-i686-libwinpthread-git-9.0.0.6373.5be8fcd83-1-any.pkg.tar.zst;https://mirror.bit.edu.cn/msys2/mingw/i686/mingw-w64-i686-libwinpthread-git-9.0.0.6373.5be8fcd83-1-any.pkg.tar.zst;https://mirror.selfnet.de/msys2/mingw/i686/mingw-w64-i686-libwinpthread-git-9.0.0.6373.5be8fcd83-1-any.pkg.tar.zst;https://mirrors.sjtug.sjtu.edu.cn/msys2/mingw/i686/mingw-w64-i686-libwinpthread-git-9.0.0.6373.5be8fcd83-1-any.pkg.tar.zst -> msys-mingw-w64-i686-libwinpthread-git-9.0.0.6373.5be8fcd83-1-any.pkg.tar.zst...
 [DEBUG] To include the environment variables in debug output, pass --debug-env
 [DEBUG] Feature flag 'binarycaching' unset
@@ -100,11 +163,11 @@ https://mirrors.sjtug.sjtu.edu.cn/msys2/mingw/i686/mingw-w64-i686-libwinpthread-
 
 [DEBUG] D:\a\_work\1\s\src\vcpkg\base\downloads.cpp(774):
 [DEBUG] Time in subprocesses: 0 us
-[DEBUG] Time in parsing JSON: 19 us
+[DEBUG] Time in parsing JSON: 57 us
 [DEBUG] Time in JSON reader: 0 us
-[DEBUG] Time in filesystem: 7323 us
+[DEBUG] Time in filesystem: 7507 us
 [DEBUG] Time in loading ports: 0 us
-[DEBUG] Exiting after 36.6 s (36598089 us)
+[DEBUG] Exiting after 36.62 s (36617045 us)
 
 CMake Error at scripts/cmake/vcpkg_download_distfile.cmake:32 (message):
 
@@ -152,40 +215,28 @@ Include '[catch2] Build error' in your bug report title, the following version i
     vcpkg-scripts version: 6f7ffeb 2022-11-11 (1 year, 3 months ago)
 
 
-Please use the prefilled template from C:\Dev\Sonic-Pi\app\vcpkg\installed\vcpkg\issue_body.md when reporting your issue.
-
-C:\Dev\Sonic-Pi\app\vcpkg># libsndfile[ore,external-libs]
-'#' is not recognized as an internal or external command,
-operable program or batch file.
-
-C:\Dev\Sonic-Pi\app\vcpkg>cd C:\Dev\Sonic-Pi\app
-
-C:\Dev\Sonic-Pi\app>#call win-pre-translations.bat
-'#call' is not recognized as an internal or external command,
-operable program or batch file.
-
-C:\Dev\Sonic-Pi\app>cd C:\Dev\Sonic-Pi\app
-
-C:\Dev\Sonic-Pi\app>call win-config.bat Release
-
-C:\Dev\Sonic-Pi\app>set WORKING_DIR=C:\Dev\Sonic-Pi\app
-
-C:\Dev\Sonic-Pi\app>set CONFIG=Release
-
-C:\Dev\Sonic-Pi\app>cd C:\Dev\Sonic-Pi\app\
-
-C:\Dev\Sonic-Pi\app>if /I "Release" == "" (set CONFIG=Release )
-"Creating build directory... for Release build"
-
-C:\Dev\Sonic-Pi\app>mkdir build  1>nul
-A subdirectory or file build already exists.
+Please use the prefilled template from C:\Dev\sonic-pi-4.4.0\app\vcpkg\installed\vcpkg\issue_body.md when reporting your issue.
+Translating tutorial...
+The system cannot find the path specified.
+Generating docs for the Qt GUI...
+        1 file(s) copied.
+The system cannot find the path specified.
+"Creating build directory..."
 "Generating project files..."
-
-C:\Dev\Sonic-Pi\app>cd build
-
-C:\Dev\Sonic-Pi\app\build>cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release ..\
 -- CMakeLists: Sonic Pi
 -- Selecting Windows SDK version 10.0.22621.0 to target Windows 10.0.22631.
+-- The C compiler identification is MSVC 19.38.33134.0
+-- The CXX compiler identification is MSVC 19.38.33134.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.38.33130/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.38.33130/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
 -- TARGET_WIN
 -- System: Windows-10.0.22631
 -- Compiler: MSVC
@@ -210,44 +261,14 @@ Call Stack (most recent call first):
 
 
 -- Configuring incomplete, errors occurred!
-
-C:\Dev\Sonic-Pi\app\build>cd C:\Dev\Sonic-Pi\app
-
-C:\Dev\Sonic-Pi\app>call win-build-gui.bat Release
-
-C:\Dev\Sonic-Pi\app>set WORKING_DIR=C:\Dev\Sonic-Pi\app
-
-C:\Dev\Sonic-Pi\app>set CONFIG=Release
-
-C:\Dev\Sonic-Pi\app>if /I "Release" == "" (set CONFIG=Release )
-
-C:\Dev\Sonic-Pi\app>cd C:\Dev\Sonic-Pi\app\
-
-C:\Dev\Sonic-Pi\app>cd build
-
-C:\Dev\Sonic-Pi\app\build>cmake --build . --config Release
 MSBuild version 17.8.5+b5265ef37 for .NET Framework
 MSBUILD : error MSB1009: Project file does not exist.
 Switch: ALL_BUILD.vcxproj
-
-C:\Dev\Sonic-Pi\app\build>cd C:\Dev\Sonic-Pi\app
-
-C:\Dev\Sonic-Pi\app>call win-post-tau-prod-release.bat
-
-C:\Dev\Sonic-Pi\app>set WORKING_DIR=C:\Dev\Sonic-Pi\app
-
-C:\Dev\Sonic-Pi\app>cd C:\Dev\Sonic-Pi\app\
 Compiling Erlang/Elixir files...
-
-C:\Dev\Sonic-Pi\app>cd C:\Dev\Sonic-Pi\app\\server\beam\tau
-
-C:\Dev\Sonic-Pi\app\server\beam\tau>set MIX_ENV=prod
-
-C:\Dev\Sonic-Pi\app\server\beam\tau>cmd /c mix tau.release
 * creating c:/Users/Jonny/.mix/archives/hex-2.0.6
 * creating c:/Users/Jonny/.mix/elixir/1-16/rebar3
 Resolving Hex dependencies...
-Resolution completed in 0.402s
+Resolution completed in 0.44s
 Unchanged:
   bunt 0.2.1
   castore 1.0.3
@@ -288,26 +309,255 @@ Unchanged:
   toml 0.7.0
   websock 0.5.2
   websock_adapter 0.5.3
-All dependencies are up to date
+* Getting phoenix (Hex package)
+* Getting phoenix_html (Hex package)
+* Getting phoenix_live_reload (Hex package)
+* Getting phoenix_live_view (Hex package)
+* Getting heroicons (Hex package)
+* Getting floki (Hex package)
+* Getting phoenix_live_dashboard (Hex package)
+* Getting esbuild (Hex package)
+* Getting tailwind (Hex package)
+* Getting telemetry_metrics (Hex package)
+* Getting telemetry_poller (Hex package)
+* Getting gettext (Hex package)
+* Getting jason (Hex package)
+* Getting plug_cowboy (Hex package)
+* Getting petal_components (Hex package)
+* Getting exsync (Hex package)
+* Getting rustler (Hex package)
+* Getting logger_file_backend (Hex package)
+* Getting credo (Hex package)
+* Getting bunt (Hex package)
+* Getting file_system (Hex package)
+* Getting toml (Hex package)
+* Getting phoenix_ecto (Hex package)
+* Getting ecto (Hex package)
+* Getting plug (Hex package)
+* Getting mime (Hex package)
+* Getting plug_crypto (Hex package)
+* Getting telemetry (Hex package)
+* Getting decimal (Hex package)
+* Getting cowboy (Hex package)
+* Getting cowboy_telemetry (Hex package)
+* Getting cowlib (Hex package)
+* Getting ranch (Hex package)
+* Getting expo (Hex package)
+* Getting castore (Hex package)
+* Getting phoenix_template (Hex package)
+* Getting phoenix_pubsub (Hex package)
+* Getting websock_adapter (Hex package)
+* Getting websock (Hex package)
+You have added/upgraded packages you could sponsor, run `mix hex.sponsor` to learn more
+==> logger_file_backend
+Compiling 1 file (.ex)
+Generated logger_file_backend app
+==> decimal
+Compiling 4 files (.ex)
+Generated decimal app
+==> mime
+Compiling 1 file (.ex)
+Generated mime app
+==> toml
+Compiling 10 files (.ex)
+Generated toml app
+===> Analyzing applications...
+===> Compiling telemetry
+==> telemetry_metrics
+Compiling 7 files (.ex)
+Generated telemetry_metrics app
+===> Analyzing applications...
+===> Compiling telemetry_poller
+==> jason
+Compiling 10 files (.ex)
+Generated jason app
+warning: in order to compile .yrl files, you must add "compilers: [:yecc] ++ Mix.compilers()" to the "def project" section of expo's mix.exs
+  (mix 1.16.1) lib/mix/tasks/compile.yecc.ex:70: Mix.Tasks.Compile.Yecc.preload/1
+  (mix 1.16.1) lib/mix/compilers/erlang.ex:66: Mix.Compilers.Erlang.compile/6
+  (mix 1.16.1) lib/mix/task.ex:478: anonymous fn/3 in Mix.Task.run_task/5
+  (mix 1.16.1) lib/mix/tasks/compile.all.ex:124: Mix.Tasks.Compile.All.run_compiler/2
+  (mix 1.16.1) lib/mix/tasks/compile.all.ex:104: Mix.Tasks.Compile.All.compile/4
+  (mix 1.16.1) lib/mix/tasks/compile.all.ex:93: Mix.Tasks.Compile.All.with_logger_app/2
 
-11:01:16.611 [debug] Downloading tailwind from https://github.com/tailwindlabs/tailwindcss/releases/download/v3.3.2/tailwindcss-windows-x64.exe
-** (RuntimeError) Couldn't fetch https://github.com/tailwindlabs/tailwindcss/releases/download/v3.3.2/tailwindcss-windows-x64.exe: {:error, {:failed_connect, [{:to_address, {~c"github.com", 443}}, {:inet, [:inet], {:options, {:cacertfile, ~c"c:/Dev/Sonic-Pi/app/server/beam/tau/_build/prod/lib/castore/priv/cacerts.pem", {:error, :enoent}}}}]}}
+==> expo
+Compiling 2 files (.erl)
+Compiling 21 files (.ex)
+Generated expo app
+==> phoenix_pubsub
+Compiling 11 files (.ex)
+Generated phoenix_pubsub app
+==> plug_crypto
+Compiling 5 files (.ex)
+Generated plug_crypto app
+==> gettext
+Compiling 17 files (.ex)
+     warning: macro ends_in/2 is unused
+     │
+ 251 │   defmacrop ends_in(n, digits) do
+     │             ~
+     │
+     └─ lib/gettext/plural.ex:251:13: Gettext.Plural (module)
 
-This typically means we cannot reach the source or you are behind a proxy.
-You can try again later and, if that does not work, you might:
+Generated gettext app
+===> Analyzing applications...
+===> Compiling ranch
+==> ecto
+Compiling 56 files (.ex)
+     warning: Logger.warn/1 is deprecated. Use Logger.warning/2 instead
+     │
+ 474 │       Logger.warn """
+     │              ~
+     │
+     └─ lib/ecto/changeset/relation.ex:474:14: Ecto.Changeset.Relation.process_current/3
 
-  1. If behind a proxy, ensure your proxy is configured and that
-     your certificates are set via the cacerts_path configuration
+     warning: Logger.warn/1 is deprecated. Use Logger.warning/2 instead
+     │
+ 208 │           Logger.warn """
+     │                  ~
+     │
+     └─ lib/ecto/repo/preloader.ex:208:18: Ecto.Repo.Preloader.fetch_ids/4
 
-  2. Manually download the executable from the URL above and
-     place it inside "_build/tailwind-windows-x64.exe"
+      warning: Logger.warn/1 is deprecated. Use Logger.warning/2 instead
+      │
+ 3143 │       Logger.warn """
+      │              ~
+      │
+      └─ lib/ecto/changeset.ex:3143:14: Ecto.Changeset.optimistic_lock/3
 
-  3. Install and use Tailwind from npmJS. See our module documentation
-     to learn more: https://hexdocs.pm/tailwind
+Generated ecto app
+==> rustler
+Compiling 7 files (.ex)
+Generated rustler app
+==> plug
+Compiling 1 file (.erl)
+Compiling 40 files (.ex)
+Generated plug app
+==> phoenix_html
+Compiling 9 files (.ex)
+Generated phoenix_html app
+==> phoenix_template
+Compiling 4 files (.ex)
+Generated phoenix_template app
+==> castore
+Compiling 1 file (.ex)
+Generated castore app
+==> esbuild
+Compiling 3 files (.ex)
+    warning: Logger.warn/1 is deprecated. Use Logger.warning/2 instead
+    │
+ 69 │       Logger.warn("""
+    │              ~
+    │
+    └─ lib/esbuild.ex:69:14: Esbuild.start/2
 
-    (tailwind 0.2.1) lib/tailwind.ex:303: Tailwind.fetch_body!/1
-    (tailwind 0.2.1) lib/tailwind.ex:224: Tailwind.install/1
-    (mix 1.16.1) lib/mix/task.ex:478: anonymous fn/3 in Mix.Task.run_task/5
-    (mix 1.16.1) lib/mix/task.ex:544: Mix.Task.run_alias/6
-    (mix 1.16.1) lib/mix/cli.ex:96: Mix.CLI.run_task/2
-    c:/Dev/Elixir/bin/mix:2: (file)
+    warning: Logger.warn/1 is deprecated. Use Logger.warning/2 instead
+    │
+ 83 │         Logger.warn("""
+    │                ~
+    │
+    └─ lib/esbuild.ex:83:16: Esbuild.start/2
+
+Generated esbuild app
+==> tailwind
+Compiling 3 files (.ex)
+    warning: Logger.warn/1 is deprecated. Use Logger.warning/2 instead
+    │
+ 72 │       Logger.warn("""
+    │              ~
+    │
+    └─ lib/tailwind.ex:72:14: Tailwind.start/2
+
+    warning: Logger.warn/1 is deprecated. Use Logger.warning/2 instead
+    │
+ 86 │         Logger.warn("""
+    │                ~
+    │
+    └─ lib/tailwind.ex:86:16: Tailwind.start/2
+
+Generated tailwind app
+==> websock
+Compiling 1 file (.ex)
+Generated websock app
+===> Analyzing applications...
+===> Compiling cowlib
+===> Analyzing applications...
+===> Compiling cowboy
+===> Analyzing applications...
+===> Compiling cowboy_telemetry
+==> plug_cowboy
+Compiling 5 files (.ex)
+     warning: Logger.warn/1 is deprecated. Use Logger.warning/2 instead
+     │
+ 352 │       Logger.warn("the :timeout option for Cowboy webserver has no effect and must be removed")
+     │              ~
+     │
+     └─ lib/plug/cowboy.ex:352:14: Plug.Cowboy.to_args/5
+
+Generated plug_cowboy app
+==> websock_adapter
+Compiling 2 files (.ex)
+Generated websock_adapter app
+==> phoenix
+Compiling 71 files (.ex)
+Generated phoenix app
+==> phoenix_live_view
+Compiling 35 files (.ex)
+Generated phoenix_live_view app
+==> heroicons
+Compiling 3 files (.ex)
+Compiling lib/heroicons.ex (it's taking more than 10s)
+Generated heroicons app
+==> phoenix_live_dashboard
+Compiling 40 files (.ex)
+Generated phoenix_live_dashboard app
+==> phoenix_ecto
+Compiling 7 files (.ex)
+Generated phoenix_ecto app
+==> petal_components
+Compiling 29 files (.ex)
+Generated petal_components app
+
+12:04:25.971 [debug] Downloading tailwind from https://github.com/tailwindlabs/tailwindcss/releases/download/v3.3.2/tailwindcss-windows-x64.exe
+
+12:04:34.694 [debug] Downloading esbuild from https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.17.19.tgz
+==> tau
+Compiling 14 files (.erl)
+src/tau_server/tau_server_api.erl:298:1: Warning: function hydra_eval/1 is unused
+%  298| hydra_eval(Code) ->
+%     | ^
+
+Compiling 17 files (.ex)
+Generated tau app
+Clean complete for "priv/static"
+
+Rebuilding...
+
+Done in 1425ms.
+
+  ..\priv\static\assets\app.js  1.8mb
+
+Done in 389ms
+Check your digested files at "priv/static"
+* assembling tau-0.1.0 on MIX_ENV=prod
+* using config/runtime.exs to configure the release at runtime
+* creating _build/prod/rel/tau/releases/0.1.0/vm.args
+* creating _build/prod/rel/tau/releases/0.1.0/remote.vm.args
+* creating _build/prod/rel/tau/releases/0.1.0/env.sh
+* creating _build/prod/rel/tau/releases/0.1.0/env.bat
+
+Release created at _build/prod/rel/tau
+
+    # To start your system
+    _build/prod/rel/tau/bin/tau start
+
+Once the release is running:
+
+    # To connect to it remotely
+    _build/prod/rel/tau/bin/tau remote
+
+    # To stop it gracefully (you may also send SIGINT/SIGTERM)
+    _build/prod/rel/tau/bin/tau stop
+
+To list all commands:
+
+    _build/prod/rel/tau/bin/tau
